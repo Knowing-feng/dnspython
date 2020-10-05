@@ -47,9 +47,9 @@ def chart_series(cur_row):
                             gl_format_ave)  # 计算(AVERAGE函数)频道周平均流量
     chart.add_series({
         'categories': '=Sheet1!$B$1:$H$1',  # 将星期一至星期日作为图表数据标签（X轴）
-        'values': '=Sheet1!$B$' + cur_row + ':$H$' + cur_row,   # 频道鄞州所有数据作为数据区域
+        'values': '=Sheet1!$B$' + cur_row + ':$H$' + cur_row,   # 频道一周所有数据作为数据区域
         'line': {'color': 'black'},         # 线条颜色定义为black(黑色)
-        'name': '=Sheet1$A$' + cur_row  # 引用业务名称为图例项
+        'name': '=Sheet1!$A$' + cur_row  # 引用业务名称为图例项
     })
 
 for row in range(2,7): # 数据域以第2~6行进行图表数据系列函数调用
