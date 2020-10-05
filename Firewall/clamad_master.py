@@ -35,3 +35,25 @@ class Scan(Thread):
                 return False
         except Exception as e:
             self.connstr = self.IP + " " + str(e)
+
+
+IPs = ["103.9.231.221"]         # 扫描主机列表
+scan_type = "multiscan_file"    # 传输扫描Scan类线程对象列表
+scan_file = '/root'              # 指定扫描路径
+i = 1
+
+threadnum = 2   # 指定启动的线程数
+scan_list = list()  # 存储扫描Scan类线程对象列表
+
+for ip in IPs:
+    currp = Scan(ip, scan_type, scan_file)     # 创建扫描Scan类对象，参数(IP, 扫描模式, 扫描路径)
+    scan_list.append(currp)     # 追加对象到列表
+    
+    if i % threadnum == 0 or i == len(IPs):     # 当达到指定线程数 或 IP列表数后启动 ，退出线程
+        for task in scan_list:
+            task.start()    # 启动线程
+        for task in scan_list:
+            task.join()     # 等待所有子线程退出，并输出扫描结果
+            print(task.connstr)     # 打印服务器连接信息
+            print(task.scan_result) # 打印扫描结果
+
