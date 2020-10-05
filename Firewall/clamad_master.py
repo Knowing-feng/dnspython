@@ -7,7 +7,7 @@ from threading import Thread
 
 
 class Scan(Thread):
-    def __int__(self, IP, scan_type, file):
+    def __init__(self, IP, scan_type, file):
         """构建方法，参数初始化"""
         Thread.__init__(self)
         self.IP = IP
