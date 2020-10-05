@@ -37,7 +37,7 @@ class Scan(Thread):
             self.connstr = self.IP + " " + str(e)
 
 
-IPs = ["103.9.231.221"]         # 扫描主机列表
+IPs = ["127.0.0.1"]         # 扫描主机列表
 scan_type = "multiscan_file"    # 传输扫描Scan类线程对象列表
 scan_file = '/root'              # 指定扫描路径
 i = 1
