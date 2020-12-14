@@ -1,6 +1,5 @@
 # *-* coding:utf-8 *-*
 #!/usr/bin/env python3
-
 """
 Author: Knowing Feng
 Email: 756418710@qq.com
